@@ -7,4 +7,8 @@
     <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
   </PropertyGroup>
 
+  <Target Name="Tailwind" BeforeTargets="Compile">
+    <Exec Command="npx tailwindcss -i ./Themes/Tailwind.css -o ./wwwroot/tailwind.css" />
+  </Target>
+
 </Project>
