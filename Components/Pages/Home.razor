@@ -1,7 +1,27 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="xl:w-300 md:w-200">
+  <form class="mt-9" method="post" @onsubmit="OnSubmit" @formname="user-prompt-form">
+    <AntiforgeryToken />
 
-Welcome to your new app.
+    <label for="user-prompt">
+      <span class="font-bold text-2xl">User Prompt</span>
+      <InputTextArea class="border-2 w-full font-bold rounded bg-neutral-700" @bind-Value="UserPrompt" />
+    </label>
+
+    <br />
+
+    <button class="btn-primary" type="submit">
+      Submit
+    </button>
+  </form>
+</div>
+
+@code {
+  private string UserPrompt { get; set; } = string.Empty;
+
+  private void OnSubmit() => Console.WriteLine(UserPrompt);
+}
