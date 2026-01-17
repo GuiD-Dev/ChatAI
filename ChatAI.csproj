@@ -7,6 +7,10 @@
     <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="OllamaSharp" Version="5.4.12" />
+  </ItemGroup>
+
   <Target Name="Tailwind" BeforeTargets="Compile">
     <Exec Command="npx tailwindcss -i ./Themes/Tailwind.css -o ./wwwroot/tailwind.css" />
   </Target>
